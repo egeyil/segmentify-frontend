@@ -1,0 +1,47 @@
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color:rgb(199, 199, 199);
+}
+
+main { 
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    border-radius: 0.5em;
+    height: 95vh;
+    margin: 1em 4em;
+    border: 0.1em solid rgb(187, 187, 187);
+}
+
+main > h1 {
+    padding: 1.5em 0 1em 1.5em;
+}
+
+strong {
+    font-weight: 500;
+}
+
+.content {
+    display: flex;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1em 0 2em;
+}
+
+.sidebar h3 {
+    font-weight: 300;
+}
+
+.sidebar .flex-item {
+    padding: 0.5em 10em 0.5em 1em;
+}
+
+.products {
+    display: flex;
+}
