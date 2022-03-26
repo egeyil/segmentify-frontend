@@ -11,7 +11,6 @@ body {
 
 main { 
     background-color: rgb(255, 255, 255);
-    box-sizing: border-box;
     border-radius: 0.5em;
     border: 0.1em solid rgb(187, 187, 187);
     box-shadow: -0.1vw 0.25vh rgba(201, 201, 201, 0.9);
@@ -133,17 +132,17 @@ main > h1 {
 .products {
     display: flex;
     gap: 1em;
-    margin-bottom: 2em;
+    margin: 0 3em 1em 0;
 }
 
 .product-card {
-    min-height: 40vh;
-    max-width: 15vw;
-    min-width: 10vw;
+    max-width: 280px;
 }
 
 .image-container {
+    text-align: center;
     min-height: 20vh;
+    max-width: 20vw;
     margin: 0.7em 0.7em;
 }
 
@@ -173,20 +172,24 @@ main > h1 {
 }
 
 .buy-container {
-    width: 100%;
     display: flex;
     justify-content: center;
 }
 
 .buy-button {
-    padding: 0.5em 2em;
-    margin-bottom: 1em;
+    min-height: 10%;
+    padding: 0.5em 1em;
+    margin: 0.2em 0.5em 0.7em 0.5em;
 }
 
 /* ===================RESPONSIVE DESIGN==================== */
 
-@media screen and (max-width: 960px) {
-
+@media screen and (max-width: 960px),
+       screen and (max-height: 780px) {
+    
+    main {
+        overflow: hidden;
+    }
     p {
         font-size: 13px;
     }
@@ -200,49 +203,18 @@ main > h1 {
         max-width: 100%;
         margin: 2vh 2vw;
     }
-    .sidebar ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
     .sidebar li{
         display: inline;
         padding: 0.2em 0.2em 0.2em 0.2em;
-        margin-right: 1.5em;
+        margin:0.5em 1em;
     }
     .products {
         margin: 0 2em;
     }
     .product-card {
-        min-height: 30vh;
-        max-width: 50vw;
-    }
-    .image-container {
-        min-height: 6vh;
-    }    
-
-}
-
-@media screen and (max-height: 600px) {
-    .content {
-        display: block;
-    }
-    .sidebar {
-        width: 100%;
-        margin: 0 0 2em 2em;
-    }
-    .sidebar ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-    .sidebar li{
-        display: inline;
-        padding: 0.2em 0.2em 0.2em 0.2em;
-        margin-right: 1.5em;
-    }
-    .products {
-        margin: 0 2em;
+        max-width: 40vw;
+        max-height: 500px;
     }
 
 }
+
