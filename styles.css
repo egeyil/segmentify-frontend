@@ -13,7 +13,7 @@ main {
     box-sizing: border-box;
     box-shadow: 0 0.1em rgba(160, 160, 160, 0.9);
     border-radius: 0.5em;
-    height: 95vh;
+    min-height: 95vh;
     margin: 1em 4em;
     border: 0.1em solid rgb(187, 187, 187);
 }
@@ -62,17 +62,18 @@ strong {
 .products {
     display: flex;
     gap: 1em;
+    margin-bottom: 2em;
 }
 
 .product-card {
     border: 0.1em solid rgba(199, 199, 199, 0.5);
     border-radius: 0.5em;
-    min-height: 35em;
-    max-width: 19em;
+    min-height: 42vh;
+    max-width: 15vw;
 }
 
 .image-container {
-    min-height: 14em;
+    min-height: 10vh;
     max-width: 100%;
     padding: 1.5em 1em;
 }
@@ -136,6 +137,37 @@ img {
 /* ===================RESPONSIVE DESIGN==================== */
 
 @media screen and (max-width: 960px) {
+    .content {
+        display: block;
+    }
+    .sidebar {
+        width: 100%;
+        margin: 0 0 2em 2em;
+    }
+    .sidebar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    .sidebar li{
+        display: inline;
+        padding: 0.2em 0.2em 0.2em 0.2em;
+        margin-right: 1.5em;
+    }
+    .products {
+        margin: 0 2em;
+    }
+    .product-card {
+        min-height: 30vh;
+        max-width: 50vw;
+    }
+    .image-container {
+        min-height: 8vh;
+    }    
+
+}
+
+@media screen and (max-height: 600px) {
     .content {
         display: block;
     }
