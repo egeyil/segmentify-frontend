@@ -104,13 +104,11 @@ main > h1 {
     padding: 2vh 0 2vh 3vw;
 }
 
-.content {
-    display: flex;
-}
 
 /* ===========SIDEBAR============== */
 
 .sidebar {
+    float: left;
     box-sizing: border-box;
     max-width: 40vw;
     padding: 0;
@@ -127,11 +125,16 @@ main > h1 {
     margin: 0;
 }
 
-/* ===========PRODUCT SECTION============== */
+/* ===========CAROUSEL SECTION============== */
+
+.carousel-section {
+    width: 70vw;
+    float: right;
+}
 
 .products {
-    display: flex;
-    gap: 1em;
+    /* display: flex;
+    gap: 1em; */
     margin: 0 3em 1em 0;
 }
 
@@ -189,6 +192,10 @@ main > h1 {
  @media screen and (max-width: 850px),
        screen and (max-height: 600px) {
     
+    /* disable Flickity for small devices */
+    .carousel:after {
+        content: '';
+    }
     main {
         overflow: hidden;
     }

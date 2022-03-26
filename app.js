@@ -4,8 +4,9 @@ var elem = document.querySelector('.main-carousel');
 var flkty = new Flickity( elem, {
   // options
   accessibility: true,
-  groupCells: '80%',
+  // groupCells: 4,
   cellAlign: 'left',
-  contain: true,
-  lazyLoad: true
+  imagesLoaded: true,
+  lazyLoad: true,
+  pageDots: false,
 });
