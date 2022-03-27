@@ -189,7 +189,66 @@ main > h1 {
 /* ===================RESPONSIVE DESIGN==================== */
 
  @media screen and (max-width: 850px),
-       screen and (max-height: 665px) {
+       screen and (max-height: 600px) {
+    main > h1 {
+        font-size: 20px;
+        padding: 3vh 0 0 7vw;
+    }
+    .sidebar {
+        justify-content: space-between;
+        max-width: 100%;
+        margin: 2em 2em;
+    }
+    .sidebar li{
+        display: inline;
+        padding: 0.2em 0.2em 0.2em 0.2em;
+        margin: 0.5em 1em;
+    }
+    .carousel-section {
+        width: 90vw;
+    }
+    .products {
+        margin: 0 1em;
+    }
+    .product-card {
+        max-width: 14em;  
+        min-width: 10em; 
+        margin-right: 2vw;
+    }
+    .image-container {
+        margin: 1vh 1.5vw;
+    }
+    .image-placeholder {
+        min-height: 20vh; 
+    }
+    .product-name {
+        padding: 1vh 3vw;
+    }
+    .product-name p {
+        font-size: 13px;
+    }
+    .product-price {
+        margin: 1vh 1.5vw;
+    }
+    .product-price p {
+        margin: 0;
+        font-size: 20px;
+        padding: 1vh 2vw;
+    }
+    .cargo {
+        margin: 1.2vh 2vw;
+    }
+    .cargo p {
+        font-size: 12px;
+    }
+    .buy-button {
+        font-size: 18px;
+        width: 80%;
+    }
+
+} 
+
+@media screen and (max-width: 715px) {
     main > h1 {
         font-size: 20px;
         padding: 3vh 0 0 7vw;
@@ -248,4 +307,3 @@ main > h1 {
     }
 
 } 
-
