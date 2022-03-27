@@ -1,6 +1,8 @@
 //==========SLIDER LIBRARY FLICKITY==============//
 
-var elem = document.querySelector('.main-carousel');
+const elem = document.querySelector('.main-carousel');
+
+
 var flkty = new Flickity( elem, {
   // options
   accessibility: true,
@@ -9,4 +11,6 @@ var flkty = new Flickity( elem, {
   imagesLoaded: true,
   lazyLoad: true,
   pageDots: false,
+  prevNextButtons: true
 });
+
