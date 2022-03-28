@@ -95,6 +95,7 @@ img {
 main { 
     min-height: 95vh;
     margin: 2vh 4vw;
+
 }
 
 main > h1 {
@@ -105,30 +106,31 @@ main > h1 {
 /* ===========SIDEBAR============== */
 
 .sidebar {
-    float: left;
     box-sizing: border-box;
-    max-width: 15%;
     padding: 0;
-    margin: 0 1em 0 2em;
+    margin: 0;
+    float: left;
+    width: 20%;
 }
 
 .sidebar ul {
+    margin: 0 3em 0 2em;
     padding: 0;
-    margin: 0;
 }
 
 .sidebar li {
-    padding: 2vh 0 2vh 1vw;
-    width: 100%;
+    font-size: 19px;
+    padding: 1.2em 4em 1.2em 1em;
     margin: 0;
 }
 
 /* ===========CAROUSEL SECTION============== */
 
 .carousel-section {
+    box-sizing: border-box;
     min-height: 80vh;
-    width: 80%;
-    float:right;
+    width: 80%; 
+    float: right;
 }
 
 .products {
@@ -137,7 +139,7 @@ main > h1 {
 
 .product-card {
     max-width: 17em; 
-    margin-right: 1vw;
+    margin-right: 1em;
 }
 
 .image-container {
@@ -191,18 +193,26 @@ main > h1 {
 
  @media screen and (max-width: 850px),
        screen and (max-height: 600px) {
+
+    main {
+        overflow: hidden;
+    }
     main > h1 {
         font-size: 20px;
         padding: 3vh 0 0 7vw;
     }
     .sidebar {
-        justify-content: space-between;
-        max-width: 100%;
+        width: 90%;
         margin: 2em 2em;
+        overflow: auto;
+        white-space: nowrap;
+    }
+    .sidebar ul {
+        margin: 1em 0;
     }
     .sidebar li{
-        display: inline;
-        padding: 0.2em 0.2em 0.2em 0.2em;
+        display: inline-block;
+        padding: 0.2em 0.2em 1em 0.2em;
         margin: 0.5em 1em;
     }
     .carousel-section {
@@ -250,18 +260,25 @@ main > h1 {
 } 
 
 @media screen and (max-width: 715px) {
+    main {
+        overflow: hidden;
+    }
     main > h1 {
         font-size: 20px;
         padding: 3vh 0 0 7vw;
     }
     .sidebar {
-        justify-content: space-between;
-        max-width: 100%;
+        width: 90%;
         margin: 2em 2em;
+        overflow: auto;
+        white-space: nowrap;
+    }
+    .sidebar ul {
+        margin: 1em 0;
     }
     .sidebar li{
-        display: inline;
-        padding: 0.2em 0.2em 0.2em 0.2em;
+        display: inline-block;
+        padding: 0.2em 0.2em 1em 0.2em;
         margin: 0.5em 1em;
     }
     .carousel-section {
