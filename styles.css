@@ -4,6 +4,7 @@
 }
 
 body {
+    overflow: hidden;
     background-color:rgb(233, 233, 233);
 }
 
@@ -26,15 +27,15 @@ strong {
 
 /* ===========SIDEBAR============== */
 
-.sidebar li {
-    font-weight: 300;
+.category-item {
+    font-weight: 400;
     color: rgb(94, 94, 94);
     list-style-type: none;
 }
 
 @media screen and (min-width: 850px) {
-    .sidebar li:hover {
-        background-color: rgba(156, 199, 255, 0.5);
+    .category-item:hover {
+        background-color: rgba(211, 230, 255, 0.692);
         border-radius: 0.3em;
         cursor: pointer;
     }
@@ -91,12 +92,17 @@ img {
 
 /* =======================Units (Responsive Variables)========================= */
 
+.overflow {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 /* ===========MAIN============== */
 
 main { 
     min-height: 95vh;
-    margin: 2vh 4vw;
-
+    margin: 1em 3em 1em 3em;
 }
 
 main > h1 {
@@ -106,40 +112,39 @@ main > h1 {
 
 /* ===========SIDEBAR============== */
 
-.sidebar {
+#categories {
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
     float: left;
-    width: 20%;
-}
-
-.sidebar ul {
-    margin: 0 3em 0 2em;
+    width: 20em;
     padding: 0;
+    margin: 0 2em 0 2em;
 }
 
-.sidebar li {
+.category-item {
     font-size: 19px;
-    padding: 1.2em 4em 1.2em 1em;
     margin: 0;
+    padding: 1.2em 0 1.2em 0.5em;
+    width: 80%; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
+
 
 /* ===========CAROUSEL SECTION============== */
 
 .carousel-section {
     box-sizing: border-box;
-    min-height: 80vh;
-    width: 80%; 
+    width: calc(100% - 24em); 
     float: right;
 }
 
 .products {
-    margin: 0 0 3vh 0;
+    margin: 0 2vw 3vh 0;
 }
 
 .product-card {
-    max-width: 17em; 
+    max-width: 19em; 
     margin-right: 1em;
 }
 
@@ -149,34 +154,31 @@ main > h1 {
 }
 
 .image-placeholder {
-    min-height: 13em;
+    min-height: 15em;
 }
 
 .container {
-    padding: 0 1vw;
-}
-
-.product-name {
-    font-size: 16px;
-    padding: 1.5vh 1vw;
+    padding: 0 1em;
 }
 
 .product-name p {
-    margin: 0;
+    font-size: 18px;
+    padding: 0;
+    margin: 2vh 2vw;
 }
 
 .product-price {
-    margin-top: 1vh;
+    margin-top: 1em;
 }
 
 .product-price p {
-    font-size: 24px;
-    margin: 0 0.5vw;
-    padding: 1.2vh 0 1.2vh 1vw;
+    font-size: 26px;
+    margin: 0;
+    padding: 0.5em 0 0.5em 0.8em;
 }
 
 .cargo {
-    margin: 1vh 0;
+    margin: 1.5em 0;
 }
 
 .buy-container {
@@ -185,8 +187,9 @@ main > h1 {
 }
 
 .buy-button {
-    font-size: 17px;
-    padding: 1vh 3vw;
+    font-size: 21px;
+    width: 80%;
+    padding: 0.8em 0;
     margin: 1vh 0.5vw 1.5vh 0.5vw;
 }
 
@@ -202,69 +205,74 @@ main > h1 {
         font-size: 20px;
         padding: 3vh 0 0 7vw;
     }
-    .sidebar {
-        width: 90%;
-        margin: 2em 2em;
+    #categories {
+        width: 90vw;
+        margin: 2vh 2vw;
         overflow: auto;
         white-space: nowrap;
     }
-    .sidebar ul {
-        margin: 1em 0;
-    }
-    .sidebar li{
+    .category-item{
         display: inline-block;
-        padding: 0.2em 0.2em 1em 0.2em;
-        margin: 0.5em 1em;
+        width: fit-content; 
+        max-width: 200px;
+        padding: 0.5vh 0.5vw;
+        margin: 3vh 1.5vw;
     }
     .carousel-section {
-        width: 90vw;
+        width: 95%;
     }
     .products {
-        margin: 0 1em;
+        margin: 0;
+        padding: 0;
     }
     .product-card {
         max-width: 14em;  
-        min-width: 10em; 
-        margin-right: 2vw;
+        /* min-width: 10em;  */
+        margin-right: 1vw;
     }
     .image-container {
         margin: 1vh 1.5vw;
     }
     .image-placeholder {
-        min-height: 20vh; 
+        min-height: 30vh; 
     }
     .product-name {
-        padding: 1vh 3vw;
+        padding: 0;
+        margin: 3vh 2vw;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
     .product-name p {
-        font-size: 13px;
+        font-size: 14px;
+        margin: 0;
     }
     .product-price {
         margin: 1vh 1.5vw;
     }
     .product-price p {
+        font-size: 19px;
         margin: 0;
-        font-size: 20px;
-        padding: 1vh 2vw;
+        padding: 1vh 0 1vh 1vw;
     }
     .cargo {
-        margin: 1.2vh 2vw;
+        padding: 0;
+        margin: 1.5vh 2vw;
     }
     .cargo p {
-        font-size: 12px;
+        font-size: 10px;
+        margin: 0;
+        padding: 0;
     }
     .buy-button {
-        font-size: 18px;
+        padding: 1.5vh 0.2vw;
+        margin: 2vh 0;
+        font-size: 16px;
         width: 80%;
-    }
-    .sidebar li:hover {
-        cursor: pointer;
-        text-decoration: underline;
-        text-decoration-color: rgb(0, 81, 255);
     }
 } 
 
-@media screen and (max-width: 715px) {
+@media screen and (max-width: 600px) {
     main {
         overflow: hidden;
     }
@@ -272,60 +280,74 @@ main > h1 {
         font-size: 20px;
         padding: 3vh 0 0 7vw;
     }
-    .sidebar {
+    .categories {
         width: 90%;
         margin: 2em 2em;
         overflow: auto;
         white-space: nowrap;
     }
-    .sidebar ul {
-        margin: 1em 0;
-    }
-    .sidebar li{
+    .category-item{
+        font-size: 13px;
         display: inline-block;
         padding: 0.2em 0.2em 1em 0.2em;
-        margin: 0.5em 1em;
+        margin: 0.2em 0.5em;
+        width: fit-content; 
+        max-width: 100px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
     .carousel-section {
-        min-height: 70vh;
-        width: 90vw;
+        width: 95%;
+    }
+    .container {
+        padding: 0 1vw;
     }
     .products {
-        margin: 0 2em;
+        margin: 0;
+        padding: 0;
     }
     .product-card {
-        max-width: 30vw;  
-        min-width: 10em; 
-        margin-right: 2vw;
+        width: 115px;  
+        margin-right: 1vw;
     }
     .image-container {
         margin: 1vh 1.5vw;
     }
     .image-placeholder {
-        min-height: 20vh; 
+        min-height: 15vh; 
     }
     .product-name {
-        padding: 1vh 3vw;
+        padding: 0;
+        margin: 1.5vh 1.5vw;
     }
     .product-name p {
-        font-size: 13px;
+        white-space: wrap;
+        font-size: 11px;
+        margin: 0;
     }
-    .product-price {
-        margin: 1vh 1.5vw;
+    .product-price { 
+        width: 90%;
+        margin: 1vh 0.5w;
     }
     .product-price p {
+        font-size: 12px;
         margin: 0;
-        font-size: 20px;
-        padding: 1vh 2vw;
+        padding: 1vh 0 1vh 1.5vw;
     }
     .cargo {
-        margin: 1.2vh 2vw;
+        padding: 0;
+        margin: 1.5vh 0;
     }
     .cargo p {
-        font-size: 12px;
+        font-size: 8px;
+        margin: 0;
+        padding: 0;
     }
     .buy-button {
-        font-size: 18px;
+        padding: 1.2vh 0.5vw;
+        margin: 2vh 0;
+        font-size: 11px;
         width: 80%;
     }
-} 
+}  
