@@ -1,33 +1,33 @@
 //==========SLIDER LIBRARY FLICKITY==============//
-var mainCarousel = document.querySelector('.main-carousel');
+const mainCarousel = document.querySelector('.main-carousel');
+// var flkty = new Flickity( mainCarousel, {
+//   // options
+//   accessibility: true,
+//   cellAlign: 'left',
+//   imagesLoaded: true,
+//   lazyLoad: true,
+//   pageDots: false,
+//   prevNextButtons: true,
+//   resize: true
+// });
 
-var flkty = new Flickity( mainCarousel, {
-  // options
-  accessibility: true,
-  cellAlign: 'left',
-  imagesLoaded: true,
-  lazyLoad: true,
-  pageDots: false,
-  prevNextButtons: true,
-  resize: true
-});
 
 //==================PROGRAM=======================//
 
 //PSUEDO CODE 
 // 1- ürün kategorilerini al, sekmelere ekle - DONE
-// 2- Sekmelere tıklayınca o kategoriye ait ürünleri/datalarını ve sayılarını edin, sekme ismini linke ekle 
-// 3- Ürün sayısını al, sayı kadar ürün kartı oluştur
-// 4- Ürün resimlerini al loop ile her karta ekle 
-// 5- Ürün isimlerini loop ile ekle 
-// 6- Ürün fiyatlarını loop ile ekle
-// 7- bedava kargo true ise bedava kargo kısmını ekle
+// 2- Sekmelere tıklayınca o kategoriye ait ürünleri/datalarını ve sayılarını edin, sekme ismini linke ekle  - DONE
+// 3- Ürün sayısını al, sayı kadar ürün kartı oluştur - DONE
+// 4- Ürün resimlerini al loop ile her karta ekle - DONE
+// 5- Ürün isimlerini loop ile ekle - DONE
+// 6- Ürün fiyatlarını loop ile ekle - DONE
+// 7- bedava kargo true ise bedava kargo kısmını ekle - DONE ???
 
 // const listLength = Object.keys(an_object_name).length Object length
 
 const categories = document.getElementById("categories");
 const carouselSection = document.getElementById("carousel-section");
-
+// const placeholderDiv = document.getElementsByClassName("placeholder-div");
   
 async function program() {
   let response = await fetch("./product-list.json");
@@ -56,11 +56,13 @@ async function program() {
       const createProducts = () => {
 
         const createProductCards = () => {
+
           for (i=0; i < selectedCategory.length; i++) {
+
             const productCard = document.createElement("div");
             const imageContainer = document.createElement("div");
-            const imagePlaceholder = document.createElement("img");
-            imagePlaceholder.src = selectedCategory[i].image;
+            const image = document.createElement("img");
+            image.src = selectedCategory[i].image;
             const container = document.createElement("div");
 
             const productName = document.createElement("div");
@@ -74,15 +76,16 @@ async function program() {
             productPrice.appendChild(productPriceP);
 
             cargo = document.createElement("div");
-            cargoP = document.createElement("p");
-
+            let freeCargo = selectedCategory[i].params.shippingFee;
+            console.log(freeCargo);
             const checkShippingFee = () => {
-              if (selectedCategory[i].params.shippingFee = "FREE") {
+              if (freeCargo === "FREE") {
+                cargo.classList = "cargo";
+                cargoP = document.createElement("p");
                 cargoP.appendChild(document.createTextNode("🚚 Ücretsiz Kargo"));
                 cargo.appendChild (cargoP);
               } else {
-                cargoP.appendChild(document.createTextNode("YOK"));
-                cargo.appendChild (cargoP);
+                cargo.classList = "empty-box";
               }
             }
             
@@ -98,11 +101,10 @@ async function program() {
             container.classList = "container";
             productName.classList = "product-name";
             productPrice.classList = "product-price";
-            cargo.classList = "cargo";
             buyContainer.classList = "buy-container";
             buyContainerButton.classList = "buy-button";
 
-            imageContainer.appendChild(imagePlaceholder);
+            imageContainer.appendChild(image);
             productCard.appendChild(imageContainer);
             container.appendChild(productName);
             container.appendChild(productPrice);
@@ -111,6 +113,7 @@ async function program() {
             productCard.appendChild(container);
 
             mainCarousel.appendChild(productCard);
+            
           }
           
         }
