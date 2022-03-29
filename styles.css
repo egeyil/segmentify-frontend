@@ -4,7 +4,7 @@
 }
 
 body {
-    overflow: auto;
+    overflow: hidden;
     background-color:rgb(233, 233, 233);
 }
 
@@ -58,8 +58,10 @@ strong {
         color: rgb(58, 58, 58);
     }
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 850px),
+    screen and (max-height: 600px) {
     .category-item-active {
+        border-left: none;
         border-bottom: 6px solid #4070f4;
         border-radius: 9px;
         background-color: rgba(211, 230, 255, 0.692);
@@ -238,18 +240,22 @@ img {
 
 /* ===================TOAST NOTIFICATION=================== */
 
-.toast{
+.toast-container {
     position: absolute;
     top: 25px;
     right: 30px;
+    overflow: hidden;
+}
+
+.toast{
     border-radius: 10px;
     background: #fff;
-    padding: 20px 35px 20px 25px;
+    padding: 2vh 3vw 2vh 2vw;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     border-left: 6px solid #4070f4;
-    overflow: hidden;
     transform: translateX(calc(100% + 30px)); /* We make it hidden */
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+    margin-bottom: 0.7em;
 }
 
 .toast.active {

@@ -1,17 +1,3 @@
-//==========SLIDER LIBRARY FLICKITY==============//
-const mainCarousel = document.querySelector('.main-carousel');
-// var flkty = new Flickity( mainCarousel, {
-//   // options
-//   accessibility: true,
-//   cellAlign: 'left',
-//   imagesLoaded: true,
-//   lazyLoad: true,
-//   pageDots: false,
-//   prevNextButtons: true,
-//   resize: true
-// });
-
-
 //==================PROGRAM=======================//
 
 //PSUEDO CODE 
@@ -24,21 +10,19 @@ const mainCarousel = document.querySelector('.main-carousel');
 // 7- bedava kargo true ise bedava kargo kısmını ekle - DONE 
 // 8- Ürün sepete eklendi animasyonu - DONE
 // 9- Yeni sekmeye tıklayınca eski ürünlerin silinmesi
-// 10- Lazy-Loading images 
-// 11- Layout'un farklı ekranlarda düzgün çalıştığından emin ol 
-// 12- Ürün sepete eklendi animasyonunun yok olması
+// 10- Default size özelin seçili olması
+// 11- Lazy-Loading images 
+// 12- Layout'un farklı ekranlarda düzgün çalıştığından emin ol 
+// 13- Ürün sepete eklendi animasyonunun yok olması
 
 // const listLength = Object.keys(an_object_name).length Object length
 
+const mainCarousel = document.querySelector('.main-carousel');
 const categories = document.getElementById("categories");
 const carouselSection = document.getElementById("carousel-section");
 const toast = document.querySelector(".toast");
-const closeIcon = document.querySelector(".close");
-// const placeholderDiv = document.getElementsByClassName("placeholder-div");
+const toastContainer = document.querySelector(".toast-container");
 
-closeIcon.addEventListener("click", () => {
-  toast.classList.remove("active");
-});
 
 async function program() {
   let response = await fetch("./product-list.json");
@@ -107,7 +91,51 @@ async function program() {
             buyContainer.appendChild(buyContainerButton);
 
             buyContainerButton.addEventListener("click", () => {
+              //create toast 
+              let toast = document.createElement("div");
+              toast.classList.add("toast");
+              let toastContent = document.createElement("div");
+              toastContent.classList.add("toast-content");
+              let first = document.createElement("i");
+              first.classList = "fas fa-solid fa-check check";
+              let message = document.createElement("div");
+              message.classList.add("message");
+              let span = document.createElement("span");
+              span.classList = "text text-1";
+              span.appendChild(document.createTextNode("Ürün Sepete Eklendi"));
+
+              message.appendChild(span);
+              toastContent.appendChild(first);
+              toastContent.appendChild(message);
+
+              toast.appendChild(toastContent);
+
+              let second = document.createElement("i");
+              second.classList = "fa-solid fa-xmark close";
+
+              toast.appendChild(second);
+              toastContainer.appendChild(toast);
               toast.classList.add("active");
+
+              let toastObject = document.querySelectorAll(".toast");
+              let toastArray = Array.from(toastObject);
+              console.log(toastArray)
+              const deleteFunction = () => {
+                const toastDelete = document.querySelector(".toast-container");
+                while (toastDelete.hasChildNodes()) {
+                  toastArray.classList.remove("active");
+                  setTimeout(function(){
+                    toastDelete.removeChild(toastDelete.firstChild);
+                  }, 1000);
+                }
+              }
+
+              for (i = 0; i < toastArray.length; i++) {
+                toastArray[i].addEventListener("click", () => {
+                  toastArray[i].classList.remove("active");
+                });
+              }
+              setTimeout(deleteFunction, 3000);
             });
 
             productCard.classList = "product-card carousel-cell";
@@ -156,10 +184,14 @@ async function program() {
         link.appendChild(document.createTextNode(categoryArray[i]));
         link.addEventListener("click", createPage);
         link.addEventListener("click", setActive);
+        // if (i=0) {
+        //   link.classList.add("default-open");
+        // }
         categories.appendChild(link);
       }
     }
     createSidebar();
+
   }
 
   initPage();
