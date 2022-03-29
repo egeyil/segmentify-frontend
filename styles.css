@@ -8,6 +8,24 @@ body {
     background-color:rgb(233, 233, 233);
 }
 
+/* ===========HOVER STATES============= */
+
+.product-name p, img,.category-item,.buy-button:hover {
+    cursor: pointer;
+}
+
+@media screen and (min-width: 850px) {
+    .category-item:hover {
+        background-color: rgba(211, 230, 255, 0.692);
+        border-radius: 0.3em;
+        cursor: pointer;
+    }
+}
+
+.buy-button:hover {
+    background-color: rgb(41, 52, 209);
+}
+
 /* ===========MAIN============== */
 
 main { 
@@ -26,20 +44,40 @@ strong {
 }
 
 /* ===========SIDEBAR============== */
+a {
+    outline: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* a:link {
+
+}
+
+a:visited {
+
+} */
+
+/* a:focus {
+
+}
+
+a:hover {
+
+} */
+
+a:active {
+    background-color: rgb(211, 230, 255);
+    color: rgb(77, 77, 77);
+}
 
 .category-item {
     font-weight: 400;
     color: rgb(94, 94, 94);
-    list-style-type: none;
 }
 
-@media screen and (min-width: 850px) {
-    .category-item:hover {
-        background-color: rgba(211, 230, 255, 0.692);
-        border-radius: 0.3em;
-        cursor: pointer;
-    }
-}
+
 /* ===========PRODUCT SECTION============== */
 
 .product-card {
@@ -77,7 +115,7 @@ img {
 }
 
 .buy-button {
-    background-color:rgb(56, 66, 209);
+    background-color:rgb(59, 72, 255);
     color: rgb(233, 233, 233);
     font-weight: 500;
     border-style: none;
@@ -85,10 +123,7 @@ img {
     border-radius: 0.5em;
 }
 
-.buy-button:hover {
-    background-color: rgb(41, 52, 209);
-    cursor: pointer;
-}
+
 
 /* =======================Units (Responsive Variables)========================= */
 
@@ -121,6 +156,7 @@ main > h1 {
 }
 
 .category-item {
+    display: block;
     font-size: 19px;
     margin: 0;
     padding: 1.2em 0 1.2em 0.5em;
@@ -158,27 +194,41 @@ main > h1 {
 }
 
 .container {
-    padding: 0 1em;
+    padding: 0 1vw;
+}
+
+.product-name {
+    margin: 2.5vh 0.5vw;
 }
 
 .product-name p {
     font-size: 18px;
     padding: 0;
-    margin: 2vh 2vw;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    overflow: hidden;
 }
 
 .product-price {
-    margin-top: 1em;
+    width: 100%;
+    margin: 1vh 0;
 }
 
 .product-price p {
     font-size: 26px;
     margin: 0;
-    padding: 0.5em 0 0.5em 0.8em;
+    padding: 0.5em 0 0.5em 0.5em; 
 }
 
 .cargo {
-    margin: 1.5em 0;
+    padding: 0;
+    margin: 1.5vh 0;
+}
+.cargo p {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
 }
 
 .buy-container {
@@ -187,10 +237,10 @@ main > h1 {
 }
 
 .buy-button {
-    font-size: 21px;
-    width: 80%;
-    padding: 0.8em 0;
-    margin: 1vh 0.5vw 1.5vh 0.5vw;
+    font-size: 18px;
+    width: 70%;
+    padding: 1.5vh 0;
+    margin: 1.5vh 0vw ;
 }
 
 /* ===================RESPONSIVE DESIGN==================== */
@@ -234,7 +284,7 @@ main > h1 {
         margin: 1vh 1.5vw;
     }
     .image-placeholder {
-        min-height: 30vh; 
+        min-height: calc(100vh / 100vw); 
     }
     .product-name {
         padding: 0;
@@ -248,7 +298,8 @@ main > h1 {
         margin: 0;
     }
     .product-price {
-        margin: 1vh 1.5vw;
+        background-color: rgb(240, 240, 240);
+        width: 100%;
     }
     .product-price p {
         font-size: 19px;
@@ -272,7 +323,8 @@ main > h1 {
     }
 } 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px),
+       screen and (max-height: 620px) {
     main {
         overflow: hidden;
     }
@@ -308,14 +360,14 @@ main > h1 {
         padding: 0;
     }
     .product-card {
-        width: 115px;  
+        max-width: 120px;  
         margin-right: 1vw;
     }
     .image-container {
         margin: 1vh 1.5vw;
     }
     .image-placeholder {
-        min-height: 15vh; 
+        min-height: 140px;
     }
     .product-name {
         padding: 0;
@@ -327,7 +379,6 @@ main > h1 {
         margin: 0;
     }
     .product-price { 
-        width: 90%;
         margin: 1vh 0.5w;
     }
     .product-price p {
@@ -337,7 +388,7 @@ main > h1 {
     }
     .cargo {
         padding: 0;
-        margin: 1.5vh 0;
+        margin: 0.5em 0 0.2em 0;
     }
     .cargo p {
         font-size: 8px;
@@ -345,8 +396,8 @@ main > h1 {
         padding: 0;
     }
     .buy-button {
-        padding: 1.2vh 0.5vw;
-        margin: 2vh 0;
+        padding: 0.7em 0;
+        margin: 0.7em 0;
         font-size: 11px;
         width: 80%;
     }

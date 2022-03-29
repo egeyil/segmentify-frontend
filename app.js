@@ -25,6 +25,8 @@ var flkty = new Flickity( products, {
 // 6- Ürün fiyatlarını loop ile ekle
 // 7- bedava kargo true ise bedava kargo kısmını ekle
 
+// const listLength = Object.keys(an_object_name).length Object length
+
 const categories = document.getElementById("categories");
 
  async function program() {
@@ -35,14 +37,21 @@ const categories = document.getElementById("categories");
 
   // Creating the Sidebar
   const createSidebar = () => {
-    const userCategories = productList.responses[0][0].params.userCategories; // creating userCategories Array
-    const listLength = Object.keys(userCategories).length // Sidebar items length
-    console.log(listLength);
-    for (i=0; i < listLength; i++ ) {
-        let categoryItem = document.createElement( "div" );
-        categoryItem.classList.add("category-item");
-        categoryItem.appendChild(document.createTextNode(userCategories[i]));
-        categories.appendChild(categoryItem);
+    let userCategories = productList.responses[0][0].params.userCategories; // creating userCategories Array
+    console.log(userCategories.length);
+
+    for (i=0; i < userCategories.length; i++) { // Checking for ">" and splitting the string
+      let string = userCategories[i];
+      if (string.includes(">")) {
+        userCategories[i] = string.slice(string.indexOf(">") + 2);
+      } 
+    }
+
+    for (i=0; i < userCategories.length; i++ ) { // create list element and add classes
+        let link = document.createElement( "a" );
+        link.classList.add("category-item");
+        link.appendChild(document.createTextNode(userCategories[i]));
+        categories.appendChild(link);
     }
   }
 
