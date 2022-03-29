@@ -119,13 +119,14 @@ async function program() {
 
               let toastObject = document.querySelectorAll(".toast");
               let toastArray = Array.from(toastObject);
-              console.log(toastArray)
+        
               const deleteFunction = () => {
-                const toastDelete = document.querySelector(".toast-container");
-                while (toastDelete.hasChildNodes()) {
-                  toastArray.classList.remove("active");
-                  setTimeout(function(){
-                    toastDelete.removeChild(toastDelete.firstChild);
+                for (i=0; i < toastArray.length; i++) {
+                  toastArray[i].classList.remove("active");
+                  setTimeout( function(){
+                    for (i=0; i < toastArray.length; i++) {
+                      toastArray[i].remove();
+                    }
                   }, 1000);
                 }
               }
