@@ -4,7 +4,7 @@
 }
 
 body {
-    overflow: hidden;
+    overflow: auto;
     background-color:rgb(233, 233, 233);
 }
 
@@ -28,7 +28,7 @@ body {
 
 /* ===========MAIN============== */
 
-main { 
+main {
     background-color: rgb(255, 255, 255);
     border-radius: 0.5em;
     border: 0.1em solid rgb(187, 187, 187);
@@ -44,39 +44,11 @@ strong {
 }
 
 /* ===========SIDEBAR============== */
-a {
-    outline: none;
-    text-decoration: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* a:link {
-
-}
-
-a:visited {
-
-} */
-
-/* a:focus {
-
-}
-
-a:hover {
-
-} */
-
-a:active {
-    background-color: rgb(211, 230, 255);
-    color: rgb(77, 77, 77);
-}
 
 .category-item {
     font-weight: 400;
     color: rgb(94, 94, 94);
 }
-
 
 /* ===========PRODUCT SECTION============== */
 
@@ -86,7 +58,7 @@ a:active {
 }
 
 .image-container {
-    background-color: grey;
+    /* background-color: grey; */
     border-radius: 0.3em;
 }
 
@@ -135,7 +107,7 @@ img {
 
 /* ===========MAIN============== */
 
-main { 
+main {
     min-height: 95vh;
     margin: 1em 3em 1em 3em;
 }
@@ -160,7 +132,7 @@ main > h1 {
     font-size: 19px;
     margin: 0;
     padding: 1.2em 0 1.2em 0.5em;
-    width: 80%; 
+    width: 80%;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -169,18 +141,22 @@ main > h1 {
 
 /* ===========CAROUSEL SECTION============== */
 
-.carousel-section {
+#carousel-section {
     box-sizing: border-box;
-    width: calc(100% - 24em); 
+    width: calc(100% - 24em);
     float: right;
 }
+/* .main-carousel {
+    display: flex;
+    overflow: auto;
+} */
 
-.products {
+#products {
     margin: 0 2vw 3vh 0;
 }
 
 .product-card {
-    max-width: 19em; 
+    max-width: 19em;
     margin-right: 1em;
 }
 
@@ -189,8 +165,9 @@ main > h1 {
     margin: 0.9vh 0.9vw;
 }
 
-.image-placeholder {
-    min-height: 15em;
+img {
+    width: 10em;
+    height: 10em;
 }
 
 .container {
@@ -206,7 +183,7 @@ main > h1 {
     padding: 0;
     margin: 0;
     text-overflow: ellipsis;
-    white-space: nowrap; 
+    white-space: nowrap;
     overflow: hidden;
 }
 
@@ -218,7 +195,7 @@ main > h1 {
 .product-price p {
     font-size: 26px;
     margin: 0;
-    padding: 0.5em 0 0.5em 0.5em; 
+    padding: 0.5em 0 0.5em 0.5em;
 }
 
 .cargo {
@@ -263,20 +240,20 @@ main > h1 {
     }
     .category-item{
         display: inline-block;
-        width: fit-content; 
+        width: fit-content;
         max-width: 200px;
         padding: 0.5vh 0.5vw;
         margin: 3vh 1.5vw;
     }
-    .carousel-section {
+    #carousel-section {
         width: 95%;
     }
-    .products {
+    #products {
         margin: 0;
         padding: 0;
     }
     .product-card {
-        max-width: 14em;  
+        max-width: 14em;
         /* min-width: 10em;  */
         margin-right: 1vw;
     }
@@ -284,7 +261,7 @@ main > h1 {
         margin: 1vh 1.5vw;
     }
     .image-placeholder {
-        min-height: calc(100vh / 100vw); 
+        min-height: calc(100vh / 100vw);
     }
     .product-name {
         padding: 0;
@@ -321,10 +298,10 @@ main > h1 {
         font-size: 16px;
         width: 80%;
     }
-} 
+}
 
 @media screen and (max-width: 600px),
-       screen and (max-height: 620px) {
+       screen and (max-height: 600px) {
     main {
         overflow: hidden;
     }
@@ -343,24 +320,24 @@ main > h1 {
         display: inline-block;
         padding: 0.2em 0.2em 1em 0.2em;
         margin: 0.2em 0.5em;
-        width: fit-content; 
+        width: fit-content;
         max-width: 100px;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
     }
-    .carousel-section {
+    #carousel-section {
         width: 95%;
     }
     .container {
         padding: 0 1vw;
     }
-    .products {
+    #products {
         margin: 0;
         padding: 0;
     }
     .product-card {
-        max-width: 120px;  
+        max-width: 120px;
         margin-right: 1vw;
     }
     .image-container {
@@ -378,7 +355,7 @@ main > h1 {
         font-size: 11px;
         margin: 0;
     }
-    .product-price { 
+    .product-price {
         margin: 1vh 0.5w;
     }
     .product-price p {
@@ -401,4 +378,4 @@ main > h1 {
         font-size: 11px;
         width: 80%;
     }
-}  
+}
