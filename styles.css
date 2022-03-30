@@ -251,10 +251,9 @@ img {
 
 .toast{
     border-radius: 10px;
-    background: #fff;
+    background: rgb(56, 56, 56);
     padding: 2vh 3vw 2vh 2vw;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    border-left: 6px solid #4070f4;
     transform: translateX(calc(100% + 30px)); /* We make it hidden */
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
     margin-bottom: 0.7em;
@@ -273,18 +272,18 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 35px;
-    width: 35px;
-    background-color: #4070f4;
+    height: 20px;
+    width: 20px;
+    background-color: #43da3d;
     color: #fff;
-    font-size: 20px;
+    font-size: 15px;
     border-radius: 50%;
 }
 
 .toast-content .message{
     display: flex;
     flex-direction: column;
-    margin: 0 20px;
+    margin: 0 35px 0 10px;
 }
 
 .message .text{
@@ -294,13 +293,22 @@ img {
 }
 
 .message .text.text-1 {
+    font-size: 15px;
     font-weight: 600;
-    color: #333;
+    color: #f7f7f7;
+}
+
+.message .text.text-2 {
+    font-size: 12px;
+    margin-top: 0.2em;
+    font-weight: 400;
+    color: rgb(52, 125, 221);
 }
 
 .toast .close {
+    color: #ffffff;
     position: absolute;
-    top: 10px;
+    top: 27%;
     right: 15px;
     padding: 5px;
     cursor: pointer;

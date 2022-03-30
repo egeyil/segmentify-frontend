@@ -49,13 +49,19 @@ async function program() {
     toastContent.classList.add("toast-content");
     let first = document.createElement("i");
     first.classList = "fas fa-solid fa-check check";
+
     let message = document.createElement("div");
     message.classList.add("message");
-    let span = document.createElement("span");
-    span.classList = "text text-1";
-    span.appendChild(document.createTextNode("Ürün Sepete Eklendi"));
 
-    message.appendChild(span);
+    let span1 = document.createElement("span");
+    let span2 = document.createElement("span");
+    span1.classList = "text text-1";
+    span2.classList = "text text-2";
+    span1.appendChild(document.createTextNode("Ürün sepete eklendi."));
+    span2.appendChild(document.createTextNode("Sepete git"));
+
+    message.appendChild(span1);
+    message.appendChild(span2);
     toastContent.appendChild(first);
     toastContent.appendChild(message);
 
