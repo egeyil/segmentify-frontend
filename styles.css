@@ -343,10 +343,12 @@ img {
         overflow: hidden;
     }
     #carousel-section {
+        margin: 0 2vw;
         width: 95%;
+        float: left;
     }
     #products {
-        margin: 0 1vw;
+        margin: 0;
         padding: 0;
     }
     .product-card {
@@ -409,7 +411,7 @@ img {
         padding: 0 1vw;
     }
     #products {
-        margin: 0 2vw;
+        margin: 0;
     }
     .product-card {
         box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
