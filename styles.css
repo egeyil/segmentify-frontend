@@ -334,8 +334,8 @@ img {
         display: inline-block;
         width: fit-content;
         max-width: 200px;
-        padding: 0.5vh 0.5vw;
-        margin: 3vh 1.5vw;
+        padding: 0.3em 0.2em 1em 0.2em;
+        margin: 0.3em 2em 1em 0;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
@@ -400,8 +400,8 @@ img {
     .category-item{
         font-size: 13px;
         padding: 0.3em 0.2em 1em 0.2em;
-        margin: 0.2em 0.5em;
-        max-width: 15vw; 
+        margin: 0.3em 2.5em 1em 0;
+        max-width: 120px; 
     }
     .container {
         padding: 0 1vw;
