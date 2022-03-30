@@ -96,14 +96,14 @@ async function program() {
       }
     }
 
-    setTimeout(deleteFunction, 3000);
+    setTimeout(deleteFunction, 2000);
 
     const removeActive = (e) => {
       toastList[e.target.id].classList.remove("active");
 
       setTimeout( function() { // Remove only the clicked toast
         toastList[e.target.id].remove();
-      }, 500);
+      }, 350);
 
     }
   
