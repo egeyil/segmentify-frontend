@@ -10,8 +10,8 @@
 // 7- bedava kargo true ise bedava kargo kısmını ekle - DONE 
 // 8- Ürün sepete eklendi animasyonu - DONE
 // 9- Yeni sekmeye tıklayınca eski ürünlerin silinmesi - DONE
-// 10- Default size özelin seçili olması
-// 11- Lazy-Loading images 
+// 10- Default size özelin seçili olması - DONE
+// 11- Lazy-Loading images - DONE
 // 12- Layout'un farklı ekranlarda düzgün çalıştığından emin ol 
 // 13- Ürün sepete eklendi animasyonunun yok olması - DONE
 
@@ -23,6 +23,10 @@ const carouselSection = document.getElementById("carousel-section");
 const toast = document.querySelector(".toast");
 const toastContainer = document.querySelector(".toast-container");
 
+// ==============LAZYLOAD IMAGES=================
+var lazyLoadInstance = new LazyLoad({
+  // Your custom settings go here
+});
 
 async function program() {
   let response = await fetch("./product-list.json");
@@ -30,6 +34,7 @@ async function program() {
   let userCategories = productList.responses[0][0].params.userCategories; // creating userCategories Array
   let recommendedProducts = productList.responses[0][0].params.recommendedProducts;
   let categoryArray = [];
+
 
   for (i = 0; i < userCategories.length; i++) { // Checking for ">" and splitting the string, then adding it to the Category array
     if (userCategories[i].includes(">")) {
@@ -131,7 +136,11 @@ async function program() {
               const productCard = document.createElement("div");
               const imageContainer = document.createElement("div");
               const image = document.createElement("img");
-              image.src = selectedCategory[i].image;
+              image.classList.add("lazy");
+              image.src = "placeholder.png" 
+              image.setAttribute("data-src", selectedCategory[i].image);
+              lazyLoadInstance.update();
+
               const container = document.createElement("div");
   
               const productName = document.createElement("div");

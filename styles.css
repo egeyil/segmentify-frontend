@@ -183,6 +183,10 @@ img {
     width: 10em;
     height: 10em;
 }
+.lazy-background {
+    background-color: rgb(233, 233, 233);
+    background-image: url("placeholder.png"); /* Placeholder image */
+}
 
 .container {
     padding: 0 1vw;
