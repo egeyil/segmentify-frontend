@@ -326,7 +326,7 @@ img {
     }
     #categories {
         width: 100vw;
-        margin: 2vh 2vw;
+        margin: 4vh 2vw;
         overflow: auto;
         white-space: nowrap;
     }
@@ -397,9 +397,6 @@ img {
 @media screen and (max-width: 600px),
        screen and (max-height: 600px) {
            
-    .categories {
-        margin: 2em 2em;
-    }
     .category-item{
         font-size: 13px;
         padding: 0.3em 0.2em 1em 0.2em;
@@ -414,7 +411,8 @@ img {
     }
     .product-card {
         box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
-        max-width: 120px;
+        margin-right: 1.7vw;
+        max-width: 140px;
     }
     .product-name {
         margin: 1.5vh 1.5vw;
