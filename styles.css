@@ -314,8 +314,12 @@ img {
  @media screen and (max-width: 850px),
        screen and (max-height: 600px) {
 
+    body {
+        overflow-y: auto;
+    }
     main {
-        overflow: hidden;
+        overflow:hidden;
+        margin: 1vh 1vw;
     }
     main > h1 {
         font-size: 20px;
@@ -352,9 +356,6 @@ img {
     img {
         width: 100%;
     }
-    /* .image-placeholder {
-        min-height: calc(100vh / 100vw);
-    } */
     .product-name {
         padding: 0;
         margin: 3vh 2vw;
@@ -394,6 +395,10 @@ img {
 
 @media screen and (max-width: 600px),
        screen and (max-height: 600px) {
+           
+    body {
+        overflow-y: auto;
+    }
     main {
         overflow: hidden;
     }
