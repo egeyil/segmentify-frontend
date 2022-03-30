@@ -9,11 +9,11 @@
 // 6- Ürün fiyatlarını loop ile ekle - DONE
 // 7- bedava kargo true ise bedava kargo kısmını ekle - DONE 
 // 8- Ürün sepete eklendi animasyonu - DONE
-// 9- Yeni sekmeye tıklayınca eski ürünlerin silinmesi
+// 9- Yeni sekmeye tıklayınca eski ürünlerin silinmesi - DONE
 // 10- Default size özelin seçili olması
 // 11- Lazy-Loading images 
 // 12- Layout'un farklı ekranlarda düzgün çalıştığından emin ol 
-// 13- Ürün sepete eklendi animasyonunun yok olması
+// 13- Ürün sepete eklendi animasyonunun yok olması - DONE
 
 // const listLength = Object.keys(an_object_name).length Object length
 
@@ -48,10 +48,13 @@ async function program() {
       const tabId = e.target.id;
       const selectedCategory = recommendedProducts[tabId]; // This will be an array
 
-      const createProducts = (e) => {
+        const createProducts = () => {
+          //this is for deleting the contents of the page in order to fill it with new content
+          while (mainCarousel.hasChildNodes()) {
+            mainCarousel.removeChild(mainCarousel.firstChild);
+          }
 
-        const createProductCards = () => {
-
+          // we create the product cards 
           for (i = 0; i < selectedCategory.length; i++) {
 
             const productCard = document.createElement("div");
@@ -117,6 +120,7 @@ async function program() {
               toastContainer.appendChild(toast);
               toast.classList.add("active");
 
+              // This code is for removing the toast notification
               let toastObject = document.querySelectorAll(".toast");
               let toastArray = Array.from(toastObject);
         
@@ -160,12 +164,11 @@ async function program() {
           }
 
         }
+        createProducts();
 
-        createProductCards();
-      }
-
-      createProducts();
     }
+
+    // Set Active for Sidebar Items
     const setActive = (e) => {
       let sidebarItems = document.getElementsByClassName("category-item");
 
@@ -176,6 +179,7 @@ async function program() {
       }
       e.target.classList.add("category-item-active");
     }
+
     // Creating the Sidebar
     const createSidebar = () => {
       for (i = 0; i < categoryArray.length; i++) {
