@@ -139,7 +139,6 @@ async function program() {
               image.classList.add("lazy");
               image.src = "placeholder.png" 
               image.setAttribute("data-src", selectedCategory[i].image);
-              lazyLoadInstance.update();
 
               const container = document.createElement("div");
   
@@ -192,6 +191,7 @@ async function program() {
               productCard.appendChild(container);
   
               mainCarousel.appendChild(productCard);
+              lazyLoadInstance.update();
               
             }
           }
