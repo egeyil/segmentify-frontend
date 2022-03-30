@@ -40,132 +40,168 @@ async function program() {
     }
   }
 
+  const createToast = () => {
+    //create toast 
+    let toast = document.createElement("div");
+    toast.classList.add("toast");
+    let toastContent = document.createElement("div");
+    toastContent.classList.add("toast-content");
+    let first = document.createElement("i");
+    first.classList = "fas fa-solid fa-check check";
+    let message = document.createElement("div");
+    message.classList.add("message");
+    let span = document.createElement("span");
+    span.classList = "text text-1";
+    span.appendChild(document.createTextNode("Ürün Sepete Eklendi"));
+
+    message.appendChild(span);
+    toastContent.appendChild(first);
+    toastContent.appendChild(message);
+
+    toast.appendChild(toastContent);
+
+    let second = document.createElement("i");
+    second.classList = "fa-solid fa-xmark close";
+
+    toast.appendChild(second);
+    toastContainer.appendChild(toast);
+    toast.classList.add("active");
+    
+    // This code is for removing the toast notification
+    let toastList = document.querySelectorAll(".toast"); // NodeList
+    console.log(toastList)
+    let closeList = document.querySelectorAll(".close"); // NodeList
+    
+    //add every close button and toast an id
+    for (i=0; i < closeList.length; i++) {
+      toastList[i].id = i;
+      closeList[i].id = i;
+    }  
+
+    const deleteFunction = () => {
+      for (i=0; i < toastList.length; i++) {
+        toastList[i].classList.remove("active");
+        setTimeout( function(){
+          for (i=0; i < toastList.length; i++) {
+            toastList[i].remove();
+          }
+        }, 500);
+      }
+    }
+
+    setTimeout(deleteFunction, 3000);
+
+    const removeActive = (e) => {
+      toastList[e.target.id].classList.remove("active");
+
+      setTimeout( function() { // Remove only the clicked toast
+        toastList[e.target.id].remove();
+      }, 500);
+
+    }
+  
+    // Add every toast item event listener for removal
+    for (i=0; i < closeList.length; i++) {
+      closeList[i].addEventListener("click", removeActive);
+    }
+
+  }
+
   //Initial Page Setup 
   const initPage = () => {
 
+    // 
+
     //This will run everytime a sidebar link gets clicked
-    const createPage = (e) => {
-      const tabId = e.target.id;
-      const selectedCategory = recommendedProducts[tabId]; // This will be an array
+    const createPage = (tabId) => {
+      // Seçilen sekmenin veya default sekmenin ID'si tabId olacak
+      let selectedCategory = recommendedProducts[tabId]; // This will be an array
 
         const createProducts = () => {
+
           //this is for deleting the contents of the page in order to fill it with new content
           while (mainCarousel.hasChildNodes()) {
             mainCarousel.removeChild(mainCarousel.firstChild);
           }
 
           // we create the product cards 
-          for (i = 0; i < selectedCategory.length; i++) {
+          const createProductCards = () => {
+            for (i = 0; i < selectedCategory.length; i++) {
 
-            const productCard = document.createElement("div");
-            const imageContainer = document.createElement("div");
-            const image = document.createElement("img");
-            image.src = selectedCategory[i].image;
-            const container = document.createElement("div");
-
-            const productName = document.createElement("div");
-            const productNameP = document.createElement("p");
-            productNameP.appendChild(document.createTextNode(selectedCategory[i].name));
-            productName.appendChild(productNameP);
-
-            const productPrice = document.createElement("div");
-            const productPriceP = document.createElement("p");
-            productPriceP.appendChild(document.createTextNode(selectedCategory[i].priceText));
-            productPrice.appendChild(productPriceP);
-
-            cargo = document.createElement("div");
-            let freeCargo = selectedCategory[i].params.shippingFee;
-            const checkShippingFee = () => {
-              if (freeCargo === "FREE") {
-                cargo.classList = "cargo";
-                cargoP = document.createElement("p");
-                cargoP.appendChild(document.createTextNode("🚚 Ücretsiz Kargo"));
-                cargo.appendChild(cargoP);
-              } else {
-                cargo.classList = "empty-box";
-              }
-            }
-
-            checkShippingFee();
-
-            const buyContainer = document.createElement("div");
-            const buyContainerButton = document.createElement("button");
-            buyContainerButton.appendChild(document.createTextNode("Sepete Ekle"));
-            buyContainer.appendChild(buyContainerButton);
-
-            buyContainerButton.addEventListener("click", () => {
-              //create toast 
-              let toast = document.createElement("div");
-              toast.classList.add("toast");
-              let toastContent = document.createElement("div");
-              toastContent.classList.add("toast-content");
-              let first = document.createElement("i");
-              first.classList = "fas fa-solid fa-check check";
-              let message = document.createElement("div");
-              message.classList.add("message");
-              let span = document.createElement("span");
-              span.classList = "text text-1";
-              span.appendChild(document.createTextNode("Ürün Sepete Eklendi"));
-
-              message.appendChild(span);
-              toastContent.appendChild(first);
-              toastContent.appendChild(message);
-
-              toast.appendChild(toastContent);
-
-              let second = document.createElement("i");
-              second.classList = "fa-solid fa-xmark close";
-
-              toast.appendChild(second);
-              toastContainer.appendChild(toast);
-              toast.classList.add("active");
-
-              // This code is for removing the toast notification
-              let toastObject = document.querySelectorAll(".toast");
-              let toastArray = Array.from(toastObject);
-        
-              const deleteFunction = () => {
-                for (i=0; i < toastArray.length; i++) {
-                  toastArray[i].classList.remove("active");
-                  setTimeout( function(){
-                    for (i=0; i < toastArray.length; i++) {
-                      toastArray[i].remove();
-                    }
-                  }, 1000);
+              const productCard = document.createElement("div");
+              const imageContainer = document.createElement("div");
+              const image = document.createElement("img");
+              image.src = selectedCategory[i].image;
+              const container = document.createElement("div");
+  
+              const productName = document.createElement("div");
+              const productNameP = document.createElement("p");
+              productNameP.appendChild(document.createTextNode(selectedCategory[i].name));
+              productName.appendChild(productNameP);
+  
+              const productPrice = document.createElement("div");
+              const productPriceP = document.createElement("p");
+              productPriceP.appendChild(document.createTextNode(selectedCategory[i].priceText));
+              productPrice.appendChild(productPriceP);
+  
+              cargo = document.createElement("div");
+              let freeCargo = selectedCategory[i].params.shippingFee;
+              const checkShippingFee = () => {
+                if (freeCargo === "FREE") {
+                  cargo.classList = "cargo";
+                  cargoP = document.createElement("p");
+                  cargoP.appendChild(document.createTextNode("🚚 Ücretsiz Kargo"));
+                  cargo.appendChild(cargoP);
+                } else {
+                  cargo.classList = "empty-box";
                 }
               }
-
-              for (i = 0; i < toastArray.length; i++) {
-                toastArray[i].addEventListener("click", () => {
-                  toastArray[i].classList.remove("active");
-                });
-              }
-              setTimeout(deleteFunction, 3000);
-            });
-
-            productCard.classList = "product-card carousel-cell";
-            imageContainer.classList = "image-container"
-            container.classList = "container";
-            productName.classList = "product-name";
-            productPrice.classList = "product-price";
-            buyContainer.classList = "buy-container";
-            buyContainerButton.classList = "buy-button";
-
-            imageContainer.appendChild(image);
-            productCard.appendChild(imageContainer);
-            container.appendChild(productName);
-            container.appendChild(productPrice);
-            container.appendChild(cargo);
-            container.appendChild(buyContainer);
-            productCard.appendChild(container);
-
-            mainCarousel.appendChild(productCard);
-
+  
+              checkShippingFee();
+  
+              const buyContainer = document.createElement("div");
+              const buyContainerButton = document.createElement("button");
+              buyContainerButton.appendChild(document.createTextNode("Sepete Ekle"));
+              buyContainer.appendChild(buyContainerButton);
+  
+              buyContainerButton.addEventListener("click", createToast);
+  
+              productCard.classList = "product-card carousel-cell";
+              imageContainer.classList = "image-container"
+              container.classList = "container";
+              productName.classList = "product-name";
+              productPrice.classList = "product-price";
+              buyContainer.classList = "buy-container";
+              buyContainerButton.classList = "buy-button";
+  
+              imageContainer.appendChild(image);
+              productCard.appendChild(imageContainer);
+              container.appendChild(productName);
+              container.appendChild(productPrice);
+              container.appendChild(cargo);
+              container.appendChild(buyContainer);
+              productCard.appendChild(container);
+  
+              mainCarousel.appendChild(productCard);
+              
+            }
           }
+          
+          createProductCards();
 
         }
         createProducts();
 
+    }
+
+    const defaultTabOpen = () => {
+      let defaultTab = document.querySelector(".default-open");
+      createPage(defaultTab.id);
+    }
+
+    const selectTab = (e) => {
+      let selectedTabId = e.target.id;
+      createPage(selectedTabId);
     }
 
     // Set Active for Sidebar Items
@@ -178,6 +214,7 @@ async function program() {
         }
       }
       e.target.classList.add("category-item-active");
+      mainCarousel.scrollTo(0,0); 
     }
 
     // Creating the Sidebar
@@ -187,16 +224,16 @@ async function program() {
         link.id = userCategories[i]; //in order to select categories we use userCategories (because they are same as the recommendedProducts)
         link.classList.add("category-item");
         link.appendChild(document.createTextNode(categoryArray[i]));
-        link.addEventListener("click", createPage);
+        link.addEventListener("click", selectTab);
         link.addEventListener("click", setActive);
-        // if (i=0) {
-        //   link.classList.add("default-open");
-        // }
         categories.appendChild(link);
       }
     }
     createSidebar();
-
+    let allCategories = document.getElementsByClassName("category-item");
+    allCategories[0].classList.add("default-open");
+    defaultTabOpen();
+    
   }
 
   initPage();
