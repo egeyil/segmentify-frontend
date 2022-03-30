@@ -12,10 +12,8 @@
 // 9- Yeni sekmeye tıklayınca eski ürünlerin silinmesi - DONE
 // 10- Default size özelin seçili olması - DONE
 // 11- Lazy-Loading images - DONE
-// 12- Layout'un farklı ekranlarda düzgün çalıştığından emin ol 
+// 12- Layout'un farklı ekranlarda düzgün çalıştığından emin ol - DONE
 // 13- Ürün sepete eklendi animasyonunun yok olması - DONE
-
-// const listLength = Object.keys(an_object_name).length Object length
 
 const mainCarousel = document.querySelector('.main-carousel');
 const categories = document.getElementById("categories");
@@ -24,9 +22,7 @@ const toast = document.querySelector(".toast");
 const toastContainer = document.querySelector(".toast-container");
 
 // ==============LAZYLOAD IMAGES=================
-var lazyLoadInstance = new LazyLoad({
-  // Your custom settings go here
-});
+var lazyLoadInstance = new LazyLoad({});
 
 async function program() {
   let response = await fetch("./product-list.json");
@@ -35,8 +31,8 @@ async function program() {
   let recommendedProducts = productList.responses[0][0].params.recommendedProducts;
   let categoryArray = [];
 
-
-  for (i = 0; i < userCategories.length; i++) { // Checking for ">" and splitting the string, then adding it to the Category array
+  // Checking for ">" and splitting the string, then adding it to the Category array
+  for (i = 0; i < userCategories.length; i++) { 
     if (userCategories[i].includes(">")) {
       let categoryName = userCategories[i].slice(userCategories[i].indexOf(">") + 2);
       categoryArray[i] = categoryName;
@@ -113,9 +109,7 @@ async function program() {
   }
 
   //Initial Page Setup 
-  const initPage = () => {
-
-    // 
+  const initPage = () => { 
 
     //This will run everytime a sidebar link gets clicked
     const createPage = (tabId) => {
@@ -205,6 +199,7 @@ async function program() {
 
     const defaultTabOpen = () => {
       let defaultTab = document.querySelector(".default-open");
+      defaultTab.classList.add("category-item-active");
       createPage(defaultTab.id);
     }
 
